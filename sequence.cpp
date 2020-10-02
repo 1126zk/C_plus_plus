@@ -1,27 +1,28 @@
 #include "sequence.h"
 #include <iostream>
 #include <string>
+#include <stdlib.h>
 using namespace std;
 
 int main(){
 	string inbuff,where;
 	int wh;
-	sequence items("test.dat");
+	Sequence items("test.dat");
 	while (true){
 		cout << endl<<"Sequence output:"<<endl;
 		items.output();
 		cout << endl<<"1 -- add"<<endl;
-		cout << endl<<"1 -- add"<<endl;
-		cout << endl<<"1 -- add"<<endl;
+		cout << endl<<"2 -- del"<<endl;
+		cout << endl<<"3 -- quit"<<endl;
 		getline(cin,inbuff);
 		if (inbuff == "1"){
 			cout << endl<<"item to add:";
 			getline(cin,inbuff);
 			cout << "add where?";
 			getline(cin,where);
-			wh = atoi(where.c_str()):
+			wh = atoi(where.c_str());
 			if (items.addS(wh,inbuff))
-				cout << "item add"<<end;
+				cout << "item add"<<endl;
 			else
 				cout<< "item not added"<<endl;
 		}

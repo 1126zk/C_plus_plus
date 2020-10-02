@@ -1,10 +1,17 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+using namespace std;
+
+
 class Sequence{
 public:
-	bool adds（int ,const strings）；
+	bool addS(int ,const string&);
 	bool del(int);
 	void output() const;
 	Sequence() :last(-1){}
 	Sequence(const char*);
+	~Sequence();
 protected:
 	enum {MaxStr=50};
 	string s[MaxStr];
@@ -20,7 +27,7 @@ bool Sequence::addS(int pos,const string& entry){
 		|| pos <0
 		|| pos >last + 1	)
 		return false;
-	for (int i=lasts;i>=pos;i--)
+	for (int i=last;i>=pos;i--)
 		s[i+1] = s[i];
 	s[pos] = entry;
 	last++;
@@ -41,7 +48,7 @@ void Sequence::output() const {
 		cout << i << "   " <<s[i]<<endl;
 }
 
-void Sequence(const char* fname){
+Sequence::Sequence(const char* fname){
 	last=-1;
 	filename = fname;
 	in.open(fname);
@@ -56,7 +63,7 @@ Sequence::~Sequence(){
 	if (filename == "")
 		return;
 	out.open(filename.c_str());
-	for (int i=0;i<-last;i++)
+	for (int i=0;i<=last;i++)
 		out << s[i] <<endl;
 	out.close();
 }
@@ -86,7 +93,7 @@ void SortedSeq::sort(){
 	}
 }
 
-bool SortedSeq::addSS(const string entry){
+bool SortedSeq::addSS(const string& entry){
 	int i;
 	for (i=0;i<=last;i++)
 		if (entry <= s[i])
