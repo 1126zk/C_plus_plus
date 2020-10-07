@@ -14,28 +14,28 @@ int main(){
 		cout << endl<<"1 -- add"<<endl;
 		cout << endl<<"2 -- del"<<endl;
 		cout << endl<<"3 -- quit"<<endl;
-		getline(cin,inbuff);
-		if (inbuff == "1"){
+	//	getline(cin,inbuff);
+		cin>>wh;
+		if (wh == 1){
 			cout << endl<<"item to add:";
 			getline(cin,inbuff);
 			cout << "add where?";
-			getline(cin,where);
-			wh = atoi(where.c_str());
+			getline(cin,inbuff);
+		    cin>>wh;
 			if (items.addS(wh,inbuff))
 				cout << "item add"<<endl;
 			else
 				cout<< "item not added"<<endl;
 		}
-		else if (inbuff == "2"){
+		else if (wh == 2){
 			cout << endl<<"where to delete:";
-			getline(cin,where);
-			wh = atoi(where.c_str());
+	    	cin>>wh;
 			if(items.del(wh))
 				cout<<"item deleted"<<endl;
 			else
 				cout<<"item not deleted"<<endl;
 		}
-		else if (inbuff=="3")
+		else if (wh == 3)
 			break;
 	}
 	return 0;
